@@ -4,7 +4,6 @@ import idautils
 from idaapi import *
 import idaapi
 import binascii
-import pefile
 
 def get_win32Api_DLL_exports(target_dll_path):
    list_of_dll_exports = []  
