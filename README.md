@@ -48,7 +48,7 @@ The DLL binary arch must match the Qbot module or stager you are working with.
 
 <img src="img\struct.png"
      alt="Markdown Monster icon"
-     width= 400px
+     width= 600px
      height= auto
      style="float: center; margin-center: 10px;" />
 
