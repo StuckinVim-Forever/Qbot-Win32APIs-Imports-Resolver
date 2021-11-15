@@ -35,12 +35,12 @@ Every call to the "resolve_win_32_api" function is basically a call to resolve a
      style="float: center; margin-center: 10px;" />
 
 
-Now you can extract from the function call the requierments for the script to lpocate and reolve the imports.
+Now you can extract from the function call the requierments for the script to locate and reolve the imports.
 ```C
  struct_global_pointer = resolve_win32_apis(size, encrytpted_data, lib_name_decryption_index);
 ```
 
-After editing the main function of the script you need to point the script to the on disk location of the DLL binary it self to start creating the imports.
+After editing the main function of the script you need to point the script to the disk location of the DLL binary itself to start creating the imports.
 
 If successful IDA pro will create a structure of the resolved imports used by Qbot.
  
