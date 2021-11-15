@@ -43,6 +43,8 @@ Now you can extract from the function call the requierments for the script to lp
 After editing the main function of the script you need to point the script to the on disk location of the DLL binary it self to start creating the imports.
 
 If successful IDA pro will create a structure of the resolved imports used by Qbot.
+ 
+The DLL binary arch must match the Qbot module or stager you are working with.
 
 <img src="img\struct.png"
      alt="Markdown Monster icon"
