@@ -1,14 +1,15 @@
 # Qbot-Win32APIs-Imports-Resolver
 
-An IDa python script to help resolve binary imports that are resolved during run time by Qbot stagers and most of its modules.
+An IDA python script to help resolve binary imports that are resolved during run time by Qbot stagers and most of its modules.
 
 Before using the script you must identify the functions responsible for constructing the imports, 
 then proceed to fix the function type declaration to 
+
 ```C
 "_DWORD *__usercall resolve_win32_apis@<eax>(SIZE_T a1@<edx>, int a2@<ecx>, int string_index)"  
 ```
 
-in order to revel the correct function declaration.
+in order to get the correct function declaration.
 
 <img src="img\declare_broken.png"
      alt="Markdown Monster icon"
@@ -34,12 +35,12 @@ Every call to the "resolve_win_32_api" function is basically a call to resolve a
      style="float: center; margin-center: 10px;" />
 
 
-now you can extract from the function call the requierments for the script to lpocate and reolve the imports.
+Now you can extract from the function call the requierments for the script to lpocate and reolve the imports.
 ```C
  struct_global_pointer = resolve_win32_apis(size, encrytpted_data, lib_name_decryption_index);
 ```
 
-After editing the main function of the script you need to point the script to the on disk location of the inary it self to start creating the imports.
+After editing the main function of the script you need to point the script to the on disk location of the DLL binary it self to start creating the imports.
 
 If successful IDA pro will create a structure of the resolved imports used by Qbot.
 
