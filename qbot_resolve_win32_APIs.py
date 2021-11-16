@@ -49,10 +49,13 @@ def resolve_imports(lib_name ,target_DLL_path, strcut_address, encrypted_pointer
    encrypted_hashes = fetch_encrypted_library_hashes(size, encrypted_pointer_address)
    for enc_hash in encrypted_hashes:
         for api_name in dll_exports:
-         api_real_crc32_hash =  binascii.crc32(api_name)
-         if(resolve_single_api(api_name ,api_real_crc32_hash, enc_hash)):
+         try:
+          api_real_crc32_hash =  binascii.crc32(api_name)
+          if(resolve_single_api(api_name ,api_real_crc32_hash, enc_hash)):
             sucessful_apis.append(api_name) 
-        
+         except Exception as resolve_win32_api_err:
+            print("[-] failed to process win32api ", api_name," due to error ---->", resolve_win32_api_err)
+            pass    
         
    if (len(sucessful_apis) >= 1 ):
     structure_name = create_imports_structure(lib_name,sucessful_apis )
@@ -66,3 +69,4 @@ if __name__ == "__main__":
      #resolve_imports ("kernel32",  "C:\windows\syswow64\kernel32.dll", 0x3BAE684, 0x3BABA20, 0x11C)
      resolve_imports ("change_this_to_api_name",  "change_this_to_dll_path",
                       "change_to_struct_address", "change_to_encrypted_data_address", "change_to_size")
+     
