@@ -4,7 +4,6 @@ import idautils
 from idaapi import *
 import idaapi
 import binascii
-import pefile
 
 def get_win32Api_DLL_exports(target_dll_path):
    list_of_dll_exports = []  
@@ -69,4 +68,3 @@ if __name__ == "__main__":
      #resolve_imports ("kernel32",  "C:\windows\syswow64\kernel32.dll", 0x3BAE684, 0x3BABA20, 0x11C)
      resolve_imports ("change_this_to_api_name",  "change_this_to_dll_path",
                       "change_to_struct_address", "change_to_encrypted_data_address", "change_to_size")
-     
